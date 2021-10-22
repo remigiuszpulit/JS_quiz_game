@@ -1,0 +1,25 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "description": "JS Quiz game",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "sass": "^1.43.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sass ./src/scss/main.scss ./dist/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remigiuszpulit/JS_quiz_game.git"
+  },
+  "author": "Remigiusz Pulit",
+  "license": "Beerware",
+  "bugs": {
+    "url": "https://github.com/remigiuszpulit/JS_quiz_game/issues"
+  },
+  "homepage": "https://github.com/remigiuszpulit/JS_quiz_game#readme"
+}
