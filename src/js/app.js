@@ -46,14 +46,17 @@ const questionHTML = (questions, number) => {
     ansBtn.addEventListener("click", () => {
       let ansVal = value;
       temp = `${ansVal}`;
-      //   console.log(temp);
     });
 
     ansArr.push(ansBtn);
   });
-  //remember to randomize ansArr here
-  ansArr.forEach((element) => {
-    questionTitleTag.appendChild(element);
+  const ansSet = new Set();
+  while (ansSet.size !== 4) {
+    ansSet.add(Math.floor(Math.random() * 4));
+  }
+  const ansInd = [...ansSet];
+  ansInd.forEach((index) => {
+    questionTitleTag.appendChild(ansArr[index]);
   });
 
   return questionTitleTag;
@@ -95,7 +98,6 @@ startBtn.addEventListener("click", () => {
     nums.add(Math.floor(Math.random() * 6));
   }
   qSet = [...nums];
-  console.log(qSet);
 
   document
     .querySelector("body")
