@@ -4,19 +4,19 @@ export const questionSource = [
     answers: [
       {
         ansTitle: "Ten",
-        value: true,
+        value: "true",
       },
       {
         ansTitle: "Eleven",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Eight",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Fifteen",
-        value: false,
+        value: "false",
       },
     ],
   },
@@ -25,19 +25,19 @@ export const questionSource = [
     answers: [
       {
         ansTitle: "Three",
-        value: true,
+        value: "true",
       },
       {
         ansTitle: "Two",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Four",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Once",
-        value: false,
+        value: "false",
       },
     ],
   },
@@ -46,19 +46,19 @@ export const questionSource = [
     answers: [
       {
         ansTitle: "Pottery Barn",
-        value: true,
+        value: "true",
       },
       {
         ansTitle: "Ikea",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Auchan",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Lidl",
-        value: false,
+        value: "false",
       },
     ],
   },
@@ -67,19 +67,19 @@ export const questionSource = [
     answers: [
       {
         ansTitle: "Louis Vuitton",
-        value: true,
+        value: "true",
       },
       {
         ansTitle: "Gucci",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Prada",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Reserved",
-        value: false,
+        value: "false",
       },
     ],
   },
@@ -88,19 +88,19 @@ export const questionSource = [
     answers: [
       {
         ansTitle: "Minsk",
-        value: true,
+        value: "true",
       },
       {
         ansTitle: "Moscow",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Belgrad",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Warsaw",
-        value: false,
+        value: "false",
       },
     ],
   },
@@ -109,19 +109,19 @@ export const questionSource = [
     answers: [
       {
         ansTitle: "Muriel",
-        value: true,
+        value: "true",
       },
       {
         ansTitle: "Madison",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Mathilda",
-        value: false,
+        value: "false",
       },
       {
         ansTitle: "Marzena",
-        value: false,
+        value: "false",
       },
     ],
   },
