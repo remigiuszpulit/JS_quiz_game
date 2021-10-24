@@ -10,7 +10,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "sass ./src/scss/main.scss ./dist/css/main.css --watch"
+    "start": "sass ./src/scss/main.scss ./dist/css/main.css"
   },
   "repository": {
     "type": "git",
