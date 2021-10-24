@@ -12,7 +12,7 @@ const ansCount = [];
 let temp = "";
 const nums = new Set();
 let qSet = [];
-const qCount = 3;
+const qCount = 7;
 //there will be qCount+1 questions
 
 const start = createTag({
@@ -42,7 +42,7 @@ const questionHTML = (questions, number) => {
   const questionTitleTag = createTag({
     tagName: "h2",
 
-    idName: "qst",
+    idName: "qstTag",
     text: title,
   });
 
