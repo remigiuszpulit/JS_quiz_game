@@ -12,10 +12,11 @@ const ansCount = [];
 let temp = "";
 const nums = new Set();
 let qSet = [];
+const qCount = 5;
 
 const start = createTag({
   tagName: "h1",
-  // className
+
   idName: "welcome",
   text: "Welcome to the Friends Quiz!",
 });
@@ -39,7 +40,7 @@ const questionHTML = (questions, number) => {
 
   const questionTitleTag = createTag({
     tagName: "h2",
-    // className: ["me-auto"],
+
     idName: "qst",
     text: title,
   });
@@ -105,13 +106,14 @@ nextBtn.addEventListener("click", () => {
   qSet.shift();
   console.log(ansCount);
   temp = "";
-  if (ansCount.length === 4) {
+  if (ansCount.length === qCount) {
     document.querySelector(".box").appendChild(finishBtn);
     let b = document.getElementById("nextBtn");
     b.remove();
   } else {
     document.querySelector(".box").appendChild(nextBtn);
   }
+  console.log(qSet);
 });
 
 startBtn.addEventListener("click", () => {
@@ -123,11 +125,12 @@ startBtn.addEventListener("click", () => {
     nums.add(Math.floor(Math.random() * questionSource.length));
   }
   qSet = [...nums];
+  console.log(qSet);
 
   document
     .querySelector(".box")
-    .appendChild(questionHTML(questionSource, qSet[1]));
-  qSet.shift();
+    .appendChild(questionHTML(questionSource, qSet[0]));
+  //   qSet.shift();
   document.querySelector(".box").appendChild(nextBtn);
 });
 
