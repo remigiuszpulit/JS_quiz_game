@@ -35,7 +35,7 @@ const questionHTML = (questions, number) => {
 
   const questionTitleWrapper = createTag({
     tagName: "div",
-    className: ["d-flex", "me-auto", "flex-column", "justify-content-center"],
+    className: ["d-flex", "flex-column", "justify-content-center"],
     idName: "qst",
   });
 
