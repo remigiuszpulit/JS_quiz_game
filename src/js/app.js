@@ -12,7 +12,8 @@ const ansCount = [];
 let temp = "";
 const nums = new Set();
 let qSet = [];
-const qCount = 5;
+const qCount = 3;
+//there will be qCount+1 questions
 
 const start = createTag({
   tagName: "h1",
@@ -140,11 +141,11 @@ const f = (arr, val) => {
   return count;
 };
 
-const scoreboardTag = (no) => {
+const scoreboardTag = (no, count) => {
   const tag = createTag({
     tagName: "h3",
     // className
-    text: `You have answered ${no} questions correctly`,
+    text: `You have answered ${no} of ${count} questions correctly`,
   });
   return tag;
 };
@@ -176,7 +177,7 @@ finishBtn.addEventListener("click", () => {
 
   const score = f(ansCount, "true");
 
-  document.querySelector(".box").appendChild(scoreboardTag(score));
+  document.querySelector(".box").appendChild(scoreboardTag(score, qCount + 1));
   document.querySelector(".box").appendChild(replayBtn);
   let fin = document.getElementById("finishBtn");
   fin.remove();

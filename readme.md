@@ -4,3 +4,5 @@
 2. Generate css using npm start.
 
 Quiz picks random 5 questions from the questions.js file, generates answers in random order.
+
+qCount var controlls the ammount of questions
