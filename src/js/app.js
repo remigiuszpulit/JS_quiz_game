@@ -1,6 +1,13 @@
 import { createTag } from "./generateHTML.js";
 import { questionSource } from "./questions.js";
 
+const box = createTag({
+  tagName: "div",
+  className: ["box"],
+});
+
+document.querySelector("body").appendChild(box);
+
 const ansCount = [];
 let temp = "";
 const nums = new Set();
@@ -17,20 +24,27 @@ const startBtn = createTag({
   tagName: "button",
   className: ["btn", "btn-primary"],
   text: "Launch",
+  idName: "startBtn",
 });
-
-start.appendChild(startBtn);
 
 const questionHTML = (questions, number) => {
   const id = questions[number];
   const { title, answers } = id;
 
+  const questionTitleWrapper = createTag({
+    tagName: "div",
+    className: ["d-flex", "me-auto", "flex-column", "justify-content-center"],
+    idName: "qst",
+  });
+
   const questionTitleTag = createTag({
     tagName: "h2",
-    // className: ["dupa"],
+    // className: ["me-auto"],
     idName: "qst",
     text: title,
   });
+
+  questionTitleWrapper.appendChild(questionTitleTag);
 
   const ansArr = [];
 
@@ -39,7 +53,8 @@ const questionHTML = (questions, number) => {
 
     const ansBtn = createTag({
       tagName: "button",
-      className: ["btn", "btn-secondary"],
+      className: ["btn", "btn-warning", "ansBtn"],
+
       text: ansTitle,
     });
 
@@ -50,16 +65,24 @@ const questionHTML = (questions, number) => {
 
     ansArr.push(ansBtn);
   });
+
+  const ansWrapper = createTag({
+    tagName: "div",
+    className: ["d-grid", "gap-2"],
+  });
+
+  questionTitleWrapper.appendChild(ansWrapper);
+
   const ansSet = new Set();
-  while (ansSet.size !== 4) {
-    ansSet.add(Math.floor(Math.random() * 4));
+  while (ansSet.size !== ansArr.length) {
+    ansSet.add(Math.floor(Math.random() * ansArr.length));
   }
   const ansInd = [...ansSet];
   ansInd.forEach((index) => {
-    questionTitleTag.appendChild(ansArr[index]);
+    ansWrapper.appendChild(ansArr[index]);
   });
 
-  return questionTitleTag;
+  return questionTitleWrapper;
 };
 
 const nextBtn = createTag({
@@ -77,33 +100,35 @@ nextBtn.addEventListener("click", () => {
   }
 
   document
-    .querySelector("body")
+    .querySelector(".box")
     .appendChild(questionHTML(questionSource, qSet[1]));
   qSet.shift();
   console.log(ansCount);
   temp = "";
   if (ansCount.length === 4) {
-    document.querySelector("body").appendChild(finishBtn);
+    document.querySelector(".box").appendChild(finishBtn);
     let b = document.getElementById("nextBtn");
     b.remove();
   } else {
-    document.querySelector("body").appendChild(nextBtn);
+    document.querySelector(".box").appendChild(nextBtn);
   }
 });
 
 startBtn.addEventListener("click", () => {
   let s = document.getElementById("welcome");
   s.remove();
-  while (nums.size !== 6) {
-    nums.add(Math.floor(Math.random() * 6));
+  let sB = document.getElementById("startBtn");
+  sB.remove();
+  while (nums.size !== questionSource.length) {
+    nums.add(Math.floor(Math.random() * questionSource.length));
   }
   qSet = [...nums];
 
   document
-    .querySelector("body")
+    .querySelector(".box")
     .appendChild(questionHTML(questionSource, qSet[1]));
   qSet.shift();
-  document.querySelector("body").appendChild(nextBtn);
+  document.querySelector(".box").appendChild(nextBtn);
 });
 
 const f = (arr, val) => {
@@ -114,12 +139,23 @@ const f = (arr, val) => {
 
 const scoreboardTag = (no) => {
   const tag = createTag({
-    tagName: "h2",
+    tagName: "h3",
     // className
     text: `You have answered ${no} questions correctly`,
   });
   return tag;
 };
+
+const replayBtn = createTag({
+  tagName: "button",
+  className: ["btn", "btn-primary"],
+  text: "Play again",
+  idName: "replayBtn",
+});
+
+replayBtn.addEventListener("click", () => {
+  window.location.reload();
+});
 
 const finishBtn = createTag({
   tagName: "button",
@@ -134,11 +170,14 @@ finishBtn.addEventListener("click", () => {
   if (q !== null) {
     q.remove();
   }
+
   const score = f(ansCount, "true");
 
-  document.querySelector("body").appendChild(scoreboardTag(score));
+  document.querySelector(".box").appendChild(scoreboardTag(score));
+  document.querySelector(".box").appendChild(replayBtn);
   let fin = document.getElementById("finishBtn");
   fin.remove();
 });
 
-document.querySelector("body").appendChild(start);
+document.querySelector(".box").appendChild(start);
+box.appendChild(startBtn);
