@@ -131,7 +131,7 @@ startBtn.addEventListener("click", () => {
   document
     .querySelector(".box")
     .appendChild(questionHTML(questionSource, qSet[0]));
-  //   qSet.shift();
+
   document.querySelector(".box").appendChild(nextBtn);
 });
 
@@ -144,7 +144,7 @@ const f = (arr, val) => {
 const scoreboardTag = (no, count) => {
   const tag = createTag({
     tagName: "h3",
-    // className
+
     text: `You have answered ${no} of ${count} questions correctly`,
   });
   return tag;
